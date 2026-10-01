@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "name": "minimal_test",
+    "description": "Minimal 2-job configuration for smoke testing",
+    "expected_jobs": 2,
+    "expected_runtime_per_job": "~5 minutes"
+  },
+  "hyperparameters": {
+    "mlp_hidden": ["N+5", "N+10"],
+    "mlp_ncycles": ["200"],
+    "mlp_testrate": ["5"],
+    "mlp_neurontype": ["tanh"],
+    "mlp_vartransform": ["D"],
+    "bdt_ntrees": ["400"],
+    "bdt_maxdepth": ["3"],
+    "feature_sets": ["fcal_1111111000"],
+    "train_events": ["500000"]
+  },
+  "notes": [
+    "This minimal configuration creates only 2 jobs for quick testing",
+    "Useful for verifying system installation and basic functionality",
+    "Uses baseline 7-feature FCAL set (EoverPkin, DOCA, E9E25, E1E9, SumU, SumV, UV_Asymmetry)",
+    "Default BDT parameters with 400 trees and depth 3",
+    "Two MLP hidden layer options: N+5 and N+10"
+  ]
+}

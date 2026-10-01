@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "name": "medium_validation",
+    "description": "Medium 48-job configuration for validation testing",
+    "expected_jobs": 48,
+    "expected_runtime_per_job": "~10 minutes"
+  },
+  "hyperparameters": {
+    "mlp_hidden": ["N+5", "N+10", "N+15"],
+    "mlp_ncycles": ["200", "400"],
+    "mlp_testrate": ["5"],
+    "mlp_neurontype": ["tanh"],
+    "mlp_vartransform": ["D"],
+    "bdt_ntrees": ["400", "800"],
+    "bdt_maxdepth": ["2", "3"],
+    "feature_sets": ["fcal_1111111000", "fcal_1110000000"],
+    "train_events": ["500000"]
+  },
+  "notes": [
+    "Medium configuration: 3 × 2 × 2 × 2 × 2 = 48 jobs",
+    "Tests multiple MLP architectures (N+5, N+10, N+15)",
+    "Varies training cycles (200, 400) to explore convergence",
+    "Tests BDT depth (2, 3) and tree count (400, 800)",
+    "Compares 7-feature baseline vs 3-feature core set",
+    "Good for validation before full production run"
+  ]
+}

@@ -1,0 +1,77 @@
+# Run Information for e+e- vs π+π- Training Data
+# GlueX CPP Experiment - Spring 2018 Production
+
+## RCDB Query
+@is_production and @status_approved
+
+## Run Ranges
+
+### Spring 2018
+Run range: 40856-41384
+Beam energy: 8.2-8.8 GeV photon beam
+Target: Liquid hydrogen (LH2)
+
+## Data Locations
+
+### Signal (e+e-)
+Reaction: γp → e+e-p (exclusive two-electron production)
+Tree: tree_eMissingProton__B4_31750_13
+Location: /cache/halld/RunPeriod-2018-01/analysis/ver03/tree_eMissingProton/
+Files: ~500 ROOT files
+
+### Background (π+π-)
+Reaction: γp → π+π-p (charged pion production)
+Tree: tree_pippim__B4
+Location: /cache/halld/RunPeriod-2018-01/analysis/ver03/tree_pippim__B4/
+Files: ~800 ROOT files
+
+## Statistics (After Selection Cuts)
+
+Signal:
+  - Total electron tracks: ~4M
+  - Positive electrons (e+): ~2M
+  - Negative electrons (e-): ~2M
+
+Background:
+  - Total pion tracks: ~4M
+  - Positive pions (π+): ~2M
+  - Negative pions (π-): ~2M
+
+Training split: 50% train / 50% test
+
+## File Naming Convention
+
+After processing with DSelectors and unroll_tracks.C:
+  - signal_combined_4M.root     (all electron tracks, ~4M entries)
+  - background_OneModel_4M.root (all pion tracks, ~4M entries)
+
+For testing with smaller samples:
+  - signal_2M.root     (2M electron tracks)
+  - background_2M.root (2M pion tracks)
+
+## Production Notes
+
+- DSelectors run on ifarm compute nodes via SWIF2 batch system
+- Each file takes ~10-30 minutes to process
+- Total processing time: ~8-12 hours wall time
+- Output trees are ~100 MB per file
+- Combined output: ~50 GB for signal + background
+
+## Selection Efficiency
+
+Signal (e+e-):
+  - Geometric acceptance (FCAL): ~60%
+  - Exclusivity cuts: ~40%
+  - Total efficiency: ~24%
+
+Background (π+π-):
+  - Geometric acceptance: ~70%
+  - Kinematic cuts: ~50%
+  - Total efficiency: ~35%
+
+## Contact
+
+For questions about data preparation:
+  - Run selection: Contact GlueX offline coordination
+  - RCDB queries: https://halldweb.jlab.org/rcdb/
+  - DSelector issues: See data_prep/epem_pippim/README.md

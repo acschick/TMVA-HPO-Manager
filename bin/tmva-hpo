@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+"""
+TMVA-HPO Command Line Interface
+
+Thin wrapper script that calls the main tmva_hpo_manager.py orchestration code.
+This makes the tool pip-installable and provides a clean command-line interface.
+
+Usage:
+    tmva-hpo generate --config config/grid_configs/minimal.json
+    tmva-hpo run --local
+    tmva-hpo submit --workflow my_hpo_study
+    tmva-hpo status
+    tmva-hpo extract-metrics
+    tmva-hpo analyze
+
+Author: acschick@jlab.org
+"""
+
+import sys
+import os
+from pathlib import Path
+
+# Add src directory to Python path
+src_dir = Path(__file__).parent.parent / "src"
+sys.path.insert(0, str(src_dir))
+
+# Import and run the main manager
+from tmva_hpo_manager import main
+
+if __name__ == "__main__":
+    sys.exit(main())

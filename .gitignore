@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ROOT files (large)
+*.root
+!examples/**/*.root
+
+# Job outputs (large, keep only examples)
+jobs/
+!jobs/job_0001/
+
+# Results (large CSV/PDF files)
+*.csv
+*.pdf
+*.png
+*.svg
+!docs/images/*.png
+!docs/images/*.pdf
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+*~
+.DS_Store
+
+# Archive directory (development scripts)
+archive/
+
+# SWIF2 logs (farm-specific)
+*.out
+*.err
+farm_out/
+
+# Large result files
+*_results.json
+*_metrics.csv
+combined_*.csv
+all_studies_*.csv
+
+# System files
+.nfs*
+
+# Keep certain example files
+!examples/**/expected_output.json
+!examples/**/*.json

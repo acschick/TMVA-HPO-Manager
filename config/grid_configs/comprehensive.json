@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "name": "comprehensive_hpo",
+    "description": "Full 8640-job comprehensive hyperparameter optimization",
+    "expected_jobs": 8640,
+    "expected_runtime_per_job": "~15-30 minutes"
+  },
+  "hyperparameters": {
+    "mlp_hidden": ["N+5", "N+10", "N+15", "N+20"],
+    "mlp_ncycles": ["200", "400", "600"],
+    "mlp_testrate": ["5"],
+    "mlp_neurontype": ["tanh", "sigmoid", "ReLU", "linear"],
+    "mlp_vartransform": ["D", "G", "D,G"],
+    "bdt_ntrees": ["400", "800", "1200"],
+    "bdt_maxdepth": ["2", "3"],
+    "feature_sets": [
+      "fcal_1110000000",
+      "fcal_1111000000",
+      "fcal_1110100000",
+      "fcal_1110010000",
+      "fcal_1110001000",
+      "fcal_1110000100",
+      "fcal_1111111000",
+      "fcal_0111111000",
+      "fcal_1011111000",
+      "fcal_1101111000",
+      "fcal_1110111000",
+      "fcal_1111011000",
+      "fcal_1111101000",
+      "fcal_1111110000",
+      "fcal_1111111100"
+    ],
+    "train_events": ["100000", "500000", "1000000", "1500000"]
+  },
+  "notes": [
+    "Comprehensive grid: 4 × 3 × 4 × 3 × 4 × 15 = 8640 jobs",
+    "Feature ablation study:",
+    "  - Core 3: EoverPkin, DOCA, E9E25",
+    "  - Core + each extra (E1E9, SumU, SumV, UV_Asymmetry, Saturation)",
+    "  - All 8 features",
+    "  - Leave-one-out (all 8 minus each individual feature)",
+    "MLP architecture sweep: N+5, N+10, N+15, N+20",
+    "Training duration: 200, 400, 600 cycles",
+    "Activation functions: tanh, sigmoid, ReLU, linear",
+    "Variable transforms: D (decorrelation), G (Gaussian), D,G (both)",
+    "Training sample size: 100k, 500k, 1M, 1.5M events",
+    "BDT comparison: 400, 800, 1200 trees with depth 2 or 3",
+    "WARNING: This is a large-scale production run requiring significant compute resources"
+  ]
+}
